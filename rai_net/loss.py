@@ -14,8 +14,7 @@ class Loss:
 
 class MSE(Loss):
     """
-    MSE is mean squared error, although we're
-    just going to do total squared error
+    Just computing total squared error
     """
     def loss(self, predicted: Tensor, actual: Tensor) -> float:
         return np.sum((predicted - actual) ** 2)
