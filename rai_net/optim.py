@@ -1,6 +1,6 @@
 """
 Use an optimizer to adjust the parameters
-of the network based on gradiesnt computed during
+of the network based on gradients computed during
 backprop
 """
 
