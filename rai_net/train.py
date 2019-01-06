@@ -1,5 +1,5 @@
 """
-Function to train a neural nets
+Function to train neural nets
 """
 from rai_net.tensor import Tensor
 from rai_net.nn import NeuralNet
