@@ -45,9 +45,17 @@ net = NeuralNet([
 
 train(net, inputs, targets, num_epochs=5000, optimizer=SGD(lr=0.001))
 
+correct = 0
+total = 0
 for x in range(1, 101):
     predicted = net.forward(binary_encode(x))
     predicted_idx = np.argmax(predicted)
     actual_idx = np.argmax(fizz_buzz_encode(x))
     labels = [str(x), "fizz", "buzz", "fizzbuzz"]
     print(x, labels[predicted_idx], labels[actual_idx])
+
+    if labels[predicted_idx] == labels[actual_idx]:
+        correct += 1
+    total += 1
+
+print("Test accuracy of {}%".format(correct/total * 100))
