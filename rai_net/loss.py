@@ -14,10 +14,22 @@ class Loss:
 
 class MSE(Loss):
     """
-    Just computing total squared error
+    Computing sum of squared error
     """
     def loss(self, predicted: Tensor, actual: Tensor) -> float:
         return np.sum((predicted - actual) ** 2)
 
     def grad(self, predicted: Tensor, actual: Tensor) -> Tensor:
         return 2 * (predicted - actual)
+
+class MAE(Loss):
+    """
+    Computing sum of absolute error
+    """
+    def loss(self, predicted: Tensor, actual: Tensor) -> float:
+        return np.sum(np.abs(predicted - actual))
+
+    def grad(self, predicted: Tensor, actual: Tensor) -> Tensor:
+        grad = np.ones_like(predicted)
+        grad[actual > predicted] = -1
+        return grad
